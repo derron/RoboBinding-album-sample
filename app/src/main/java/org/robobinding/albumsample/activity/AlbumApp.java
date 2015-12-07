@@ -2,12 +2,13 @@ package org.robobinding.albumsample.activity;
 
 import org.robobinding.albumsample.store.AlbumStore;
 import org.robobinding.albumsample.store.MemoryAlbumStore;
+import org.robobinding.annotation.ViewBinding;
 import org.robobinding.binder.BinderFactory;
 import org.robobinding.binder.BinderFactoryBuilder;
+import org.robobinding.customviewbinding.CustomViewBinding;
 
 import android.app.Application;
 import android.view.View;
-import android.widget.TextView;
 
 /**
  *
@@ -38,5 +39,15 @@ public class AlbumApp extends Application {
 
     public AlbumStore getAlbumStore() {
         return albumStore;
+    }
+
+    /**
+     *
+     * @since 1.0
+     * @version $Revision: 1.0 $
+     * @author Cheng Wei
+     */
+    @ViewBinding(simpleOneWayProperties = {"enabled"})
+    public static class ViewBindingForView extends CustomViewBinding<View> {
     }
 }
